@@ -13,6 +13,12 @@ defmodule BelasisWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/api", BelasisWeb do
+    pipe_through :api
+
+    resources "/users", UserController, except: [:new, :edit]
+  end
+
   scope "/", BelasisWeb do
     pipe_through :browser
 

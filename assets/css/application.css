@@ -1,0 +1,12 @@
+.application {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-areas:
+    'logo topbar'
+    'sidebar main';
+}
+
+[data-grid='logo'] { grid-area: logo }
+[data-grid='topbar'] { grid-area: topbar }
+[data-grid='sidebar'] { grid-area: sidebar }
+[data-grid='main'] { grid-area: main }
