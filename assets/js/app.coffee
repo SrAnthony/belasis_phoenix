@@ -1,5 +1,4 @@
-# import css from '../css/app.css'
-
+# === Phoenix helpers
 import 'phoenix_html'
 
 import React from 'react'
