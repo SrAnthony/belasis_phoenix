@@ -10,9 +10,7 @@
   </head>
   <body>
 
-    <main role="main" class="application">
-      <%= render @view_module, @view_template, assigns %>
-    </main>
+    <div id="application"></div>
 
     <!-- <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/semantic.min.js") %>"></script> -->
     <!-- Semantic UI JS precisa de jquery, não quero usar ainda -->
@@ -21,5 +19,6 @@
 </html>
 
 
+<%#= render @view_module, @view_template, assigns %>
 <!-- <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p> -->
 <!-- <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p> -->

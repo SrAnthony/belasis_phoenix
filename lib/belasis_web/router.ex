@@ -22,7 +22,8 @@ defmodule BelasisWeb.Router do
   scope "/", BelasisWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    # Wildcard para que todas as urls sejam encaminhadas para pagecontroller
+    get "/*path", PageController, :index
   end
 
   # Other scopes may use custom stacks.
