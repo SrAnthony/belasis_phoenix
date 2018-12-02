@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { Error_403, Error_404, Error_500 } from '../Pages/Error/Error.coffee'
 import Sales from '../Pages/Sales/Sales.coffee'
 
 # ===
@@ -8,20 +9,32 @@ import Sales from '../Pages/Sales/Sales.coffee'
 # ===
 export default Routes = [
   {
-    path: "/",
+    path: '/',
     exact: true,
     component: () => <h2>Home</h2>
   },
   {
-    path: "/bubblegum",
+    path: '/bubblegum',
     component: () => <h2>Bubblegum</h2>
   },
   {
-    path: "/shoelaces",
+    path: '/shoelaces',
     component: () => <h2>Shoelaces</h2>
   },
   {
-    path: "/sales",
+    path: '/sales',
     component: () => <Sales />
+  },
+  {
+    path: '/403',
+    component: () => <Error_403 />
+  },
+  {
+    path: '/500',
+    component: () => <Error_500 />
+  },
+  {
+    path: '*',
+    component: () => <Error_404 />
   }
 ];
