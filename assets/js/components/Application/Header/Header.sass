@@ -43,9 +43,16 @@
       margin-right: 7px
 
     &:hover,
+    &:focus,
     &.active
       color: $primary_color
       border-bottom: 2px solid $primary_color
+      text-decoration: none
+
+  .ant-dropdown-trigger i
+    // === Override para quando usa dropdown
+    font-size: 14px !important
+    transform: scale(1) !important
 
 .app-header-right
   color: rgba(0, 0, 0, 0.65)
