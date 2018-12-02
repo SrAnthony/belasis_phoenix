@@ -1,19 +1,20 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Sidebar from './Sidebar/Sidebar.coffee'
+import Header from './Header/Header.coffee'
 import Routes from './Routes.coffee'
+
+# === Ant Design
+import 'antd/dist/antd.css'
 
 class Application extends React.Component
   render: ->
     <Router>
-      <div className="application-grid">
+      <div className="application">
 
-        <aside data-grid="sidebar">
-          <Sidebar />
-        </aside>
+        <Header />
 
-        <div data-grid="main">
+        <main className="app-main">
           <Switch>
             {Routes.map((route) =>
               <Route
@@ -24,7 +25,7 @@ class Application extends React.Component
               />
             )}
           </Switch>
-        </div>
+        </main>
 
       </div>
     </Router>

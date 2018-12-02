@@ -1,0 +1,74 @@
+@import '../../../../css/colors.sass'
+
+
+.app-header
+  width: 100%
+  height: 64px
+  position: fixed
+  top: 0
+  background-color: white
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08)
+
+.app-header-menu
+  display: flex
+
+.app-header-logo
+  line-height: 64px
+
+  img
+    width: 80%
+    margin: auto
+
+.app-header-list
+  color: rgba(0, 0, 0, 0.65)
+  list-style: none
+  margin: 0
+  padding: 0
+  height: 100%
+  display: flex
+  flex: 1
+
+  li
+    height: 100%
+    line-height: 64px
+
+  li a
+    color: inherit
+    padding: 0 20px
+    display: block
+    height: 100%
+    transition: border 0.2s, color 0.2s
+
+    i
+      margin-right: 7px
+
+    &:hover,
+    &.active
+      color: $primary_color
+      border-bottom: 2px solid $primary_color
+
+.app-header-right
+  color: rgba(0, 0, 0, 0.65)
+  list-style: none
+  margin: 0
+  padding: 0
+  height: 100%
+  display: flex
+  justify-self: flex-end
+
+  li
+    height: 100%
+    line-height: 64px
+
+  li a
+    color: inherit
+    padding: 0 12px
+    display: block
+    height: 100%
+    transition: background-color .1s
+
+    &:hover
+      background-color: rgba(0, 0, 0, 0.025)
+
+.app-header-user .ant-avatar
+  margin-right: 8px

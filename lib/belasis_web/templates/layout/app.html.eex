@@ -6,14 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Belasis · Phoenix Framework</title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
-    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/semantic.min.css") %>"/>
   </head>
   <body>
 
     <div id="application"></div>
 
-    <!-- <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/semantic.min.js") %>"></script> -->
-    <!-- Semantic UI JS precisa de jquery, não quero usar ainda -->
     <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

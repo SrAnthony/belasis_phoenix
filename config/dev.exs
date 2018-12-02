@@ -49,7 +49,7 @@ config :belasis, BelasisWeb.Endpoint,
 config :belasis, BelasisWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r{priv/static/.*(js|css|png|jpeg|jpg|gif|svg)$},
+      ~r{priv/static/.*(js|css|sass|png|jpeg|jpg|gif|svg)$},
       ~r{priv/gettext/.*(po)$},
       ~r{lib/belasis_web/views/.*(ex)$},
       ~r{lib/belasis_web/templates/.*(eex)$}

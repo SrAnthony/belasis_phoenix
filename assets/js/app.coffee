@@ -1,5 +1,6 @@
 # === Phoenix helpers
 import 'phoenix_html'
+import css from '../css/app.sass'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
