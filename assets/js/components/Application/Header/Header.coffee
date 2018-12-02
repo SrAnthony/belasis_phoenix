@@ -22,16 +22,19 @@ sales =
     </Menu>
 
 registration =
-  links: ['/services', '/products', '/employees']
+  links: ['/services', '/products', '/employees', '/customers']
   menu:
     <Menu>
       <Menu.Item key="0">
-        <NavLink to="/services">Serviços</NavLink>
+        <NavLink to="/customers">Clientes</NavLink>
       </Menu.Item>
       <Menu.Item key="1">
-        <NavLink to="/products">Produtos</NavLink>
+        <NavLink to="/services">Serviços</NavLink>
       </Menu.Item>
       <Menu.Item key="2">
+        <NavLink to="/products">Produtos</NavLink>
+      </Menu.Item>
+      <Menu.Item key="3">
         <NavLink to="/employees">Profissionais</NavLink>
       </Menu.Item>
     </Menu>

@@ -1,7 +1,8 @@
 import React from 'react'
 
 import { Error_403, Error_404, Error_500 } from '../Pages/Error/Error.coffee'
-import Sales from '../Pages/Sales/Sales.coffee'
+
+import Customers from '../Pages/Customers/Customers.coffee'
 
 # ===
 # Declaração de todas as rotas do sistema
@@ -14,16 +15,13 @@ export default Routes = [
     component: () => <h2>Home</h2>
   },
   {
-    path: '/bubblegum',
-    component: () => <h2>Bubblegum</h2>
+    path: '/customers',
+    exact: true,
+    component: () => <Customers.Index />
   },
   {
-    path: '/shoelaces',
-    component: () => <h2>Shoelaces</h2>
-  },
-  {
-    path: '/sales',
-    component: () => <Sales />
+    path: '/customers/new',
+    component: () => <Customers.New />
   },
   {
     path: '/403',
