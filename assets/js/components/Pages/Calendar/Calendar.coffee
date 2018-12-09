@@ -1,7 +1,7 @@
 import React from 'react'
 import BigCalendar from 'react-big-calendar'
 import moment from 'moment'
-import Loading from '../../Utils/Loading.coffee'
+import LoadingBlock from '../../Utils/LoadingBlock/LoadingBlock.coffee'
 
 import 'react-big-calendar/lib/css/react-big-calendar.css'
 
@@ -21,7 +21,7 @@ class Calendar extends React.Component
     }
 
   componentDidMount: ->
-    setTimeout(this.setEvents, 100)
+    this.setEvents()
 
   setEvents: () =>
     this.setState({
@@ -64,23 +64,20 @@ class Calendar extends React.Component
     { loading, events, resources } = this.state
 
     <section className="app-wrapper app-calendar" style={{paddingBottom: '20px'}}>
-      <Loading loading={loading} >
+      <LoadingBlock loading={loading}>
+        <BigCalendar
+          events={events}
+          localizer={localizer}
+          defaultView={BigCalendar.Views.DAY}
+          views={['day', 'work_week']}
+          step={60}
+          defaultDate={new Date(2018, 0, 29)}
+          resources={resources}
+          resourceIdAccessor="resourceId"
+          resourceTitleAccessor="resourceTitle"
+        />
+      </LoadingBlock>
 
-        <div className="app-block" style={{minHeight: 'calc(100vh - 100px)'}}>
-          <BigCalendar
-            events={events}
-            localizer={localizer}
-            defaultView={BigCalendar.Views.DAY}
-            views={['day', 'work_week']}
-            step={60}
-            defaultDate={new Date(2018, 0, 29)}
-            resources={resources}
-            resourceIdAccessor="resourceId"
-            resourceTitleAccessor="resourceTitle"
-          />
-        </div>
-
-      </Loading>
     </section>
 
 export default Calendar

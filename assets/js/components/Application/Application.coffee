@@ -12,6 +12,9 @@ import Routes from './Routes.coffee'
 import 'antd/dist/antd.css'
 
 class Application extends React.Component
+  componentDidUpdate: ->
+    console.log 'Application updated'
+
   render: ->
     <Router>
       <Layout style={{ width: '100vw', height: '100vh' }}>
@@ -20,9 +23,17 @@ class Application extends React.Component
 
         <Scrollbars style={{ width: '100%', height: '100%' }} autoHide>
 
-          <Layout.Content>
-            <Route render={({ location }) => (
-              <div className="application">
+              <main className="app-main">
+                <TransitionGroup exit={false}>
+                  <CSSTransition key={location.key} classNames="fade" timeout={300}>
+                    <Switch>
+                      {Routes.map (route) =>
+                        <Route key={route.path} {...route} />
+                      }
+                    </Switch>
+                  </CSSTransition>
+                </TransitionGroup>
+              </main>
 
                 <main className="app-main">
                   <TransitionGroup exit={false}>

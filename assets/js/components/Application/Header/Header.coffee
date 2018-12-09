@@ -1,67 +1,66 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Layout, Icon, Avatar, Badge, Menu, Dropdown } from 'antd'
 
 import './Header.sass'
 import belasis_blue from '../../../../static/images/belasis_blue.png'
 
-sales =
-  links: ['/sales', '/packages', '/invoices']
-  menu:
-    <Menu>
-      <Menu.Item key="0">
-        <NavLink to="/sales">Comandas</NavLink>
-      </Menu.Item>
-      <Menu.Item key="1">
-        <NavLink to="/packages">Pacotes</NavLink>
-      </Menu.Item>
-      <Menu.Divider />
-      <Menu.Item key="2">
-        <NavLink to="/invoices">Notas Fiscais</NavLink>
-      </Menu.Item>
-    </Menu>
-
-registration =
-  links: ['/services', '/products', '/employees', '/customers']
-  menu:
-    <Menu>
-      <Menu.Item key="0">
-        <NavLink to="/customers">Clientes</NavLink>
-      </Menu.Item>
-      <Menu.Item key="1">
-        <NavLink to="/services">Serviços</NavLink>
-      </Menu.Item>
-      <Menu.Item key="2">
-        <NavLink to="/products">Produtos</NavLink>
-      </Menu.Item>
-      <Menu.Item key="3">
-        <NavLink to="/employees">Profissionais</NavLink>
-      </Menu.Item>
-    </Menu>
-
-marketing =
-  links: ['/campaigns', '/website', '/whatsapp', '/online-schedule']
-  menu:
-    <Menu>
-      <Menu.Item key="0">
-        <NavLink to="/campaigns">Campanhas</NavLink>
-      </Menu.Item>
-      <Menu.Item key="1">
-        <NavLink to="/website">Website</NavLink>
-      </Menu.Item>
-      <Menu.Item key="2">
-        <NavLink to="/whatsapp">Whatsapp</NavLink>
-      </Menu.Item>
-      <Menu.Item key="3">
-        <NavLink to="/online-schedule">Agendamento Online</NavLink>
-      </Menu.Item>
-    </Menu>
-
 class Header extends React.Component
-  menuActive: (paths) ->
-    'active' if paths.includes(location.pathname)
+  constructor: (props) ->
+    super(props)
+    this.state =
+      current_menu: location.pathname
+
+  handleMenuClick: (e) =>
+    this.setState current_menu: e.key
 
   render: ->
+    sales =
+      <Menu selectedKeys={[this.state.current_menu]} onClick={this.handleMenuClick}>
+        <Menu.Item key="/sales">
+          <Link to="/sales">Comandas</Link>
+        </Menu.Item>
+        <Menu.Item key="/packages">
+          <Link to="/packages">Pacotes</Link>
+        </Menu.Item>
+        <Menu.Divider />
+        <Menu.Item key="/invoices">
+          <Link to="/invoices">Notas Fiscais</Link>
+        </Menu.Item>
+      </Menu>
+
+    registration =
+      <Menu selectedKeys={[this.state.current_menu]} onClick={this.handleMenuClick}>
+        <Menu.Item key="/customers">
+          <Link to="/customers">Clientes</Link>
+        </Menu.Item>
+        <Menu.Item key="/services">
+          <Link to="/services">Serviços</Link>
+        </Menu.Item>
+        <Menu.Item key="/products">
+          <Link to="/products">Produtos</Link>
+        </Menu.Item>
+        <Menu.Item key="/employees">
+          <Link to="/employees">Profissionais</Link>
+        </Menu.Item>
+      </Menu>
+
+    marketing =
+      <Menu selectedKeys={[this.state.current_menu]} onClick={this.handleMenuClick}>
+        <Menu.Item key="/campaigns">
+          <Link to="/campaigns">Campanhas</Link>
+        </Menu.Item>
+        <Menu.Item key="/website">
+          <Link to="/website">Website</Link>
+        </Menu.Item>
+        <Menu.Item key="/whatsapp">
+          <Link to="/whatsapp">Whatsapp</Link>
+        </Menu.Item>
+        <Menu.Item key="/online-schedule">
+          <Link to="/online-schedule">Agendamento Online</Link>
+        </Menu.Item>
+      </Menu>
+
     <Layout.Header className="app-header">
 
       <div className="app-wrapper app-header-wrapper">
@@ -70,34 +69,38 @@ class Header extends React.Component
           <img src={belasis_blue} />
         </div>
 
-        <Menu className="app-header-menu" mode="horizontal">
-          <Menu.Item>
-            <NavLink to="/" exact>
+        <Menu
+          className="app-header-menu" mode="horizontal"
+          selectedKeys={[this.state.current_menu]}
+          onClick={this.handleMenuClick}
+        >
+          <Menu.Item key="/">
+            <Link to="/">
               <Icon type="dashboard" /> Painel
-            </NavLink>
+            </Link>
           </Menu.Item>
-          <Menu.Item>
-            <NavLink to="/calendar">
+          <Menu.Item key="/calendar">
+            <Link to="/calendar">
               <Icon type="calendar" /> Agenda
-            </NavLink>
+            </Link>
           </Menu.Item>
-          <Menu.Item>
-            <Dropdown overlay={sales.menu} placement="bottomCenter">
-              <a className={this.menuActive(sales.links)}>
+          <Menu.Item key="sales">
+            <Dropdown overlay={sales} placement="bottomCenter">
+              <a>
                 <Icon type="shopping-cart" /> Vendas <Icon type="down" />
               </a>
             </Dropdown>
           </Menu.Item>
-          <Menu.Item>
-            <Dropdown overlay={registration.menu} placement="bottomCenter">
-              <a className={this.menuActive(registration.links)}>
+          <Menu.Item key="registration">
+            <Dropdown overlay={registration} placement="bottomCenter">
+              <a>
                 <Icon type="form" /> Cadastros <Icon type="down" />
               </a>
             </Dropdown>
           </Menu.Item>
-          <Menu.Item>
-            <Dropdown overlay={marketing.menu} placement="bottomCenter">
-              <a className={this.menuActive(marketing.links)}>
+          <Menu.Item key="marketing">
+            <Dropdown overlay={marketing} placement="bottomCenter">
+              <a>
                 <Icon type="notification" /> Marketing <Icon type="down" />
               </a>
             </Dropdown>
@@ -106,9 +109,9 @@ class Header extends React.Component
 
         <ul className="app-header-right">
           <li>
-            <NavLink to="/help">
+            <Link to="/help">
               <Icon type="question-circle" />
-            </NavLink>
+            </Link>
           </li>
           <li>
             <a>
