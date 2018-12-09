@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { Icon, Avatar, Badge, Menu, Dropdown } from 'antd'
+import { Layout, Icon, Avatar, Badge, Menu, Dropdown } from 'antd'
 
 import './Header.sass'
 import belasis_blue from '../../../../static/images/belasis_blue.png'
@@ -62,46 +62,47 @@ class Header extends React.Component
     'active' if paths.includes(location.pathname)
 
   render: ->
-    <header className="app-header">
-      <div className="app-wrapper app-header-menu">
+    <Layout.Header className="app-header">
+
+      <div className="app-wrapper app-header-wrapper">
 
         <div className="app-header-logo">
           <img src={belasis_blue} />
         </div>
 
-        <ul className="app-header-list">
-          <li>
+        <Menu className="app-header-menu" mode="horizontal">
+          <Menu.Item>
             <NavLink to="/" exact>
               <Icon type="dashboard" /> Painel
             </NavLink>
-          </li>
-          <li>
+          </Menu.Item>
+          <Menu.Item>
             <NavLink to="/calendar">
               <Icon type="calendar" /> Agenda
             </NavLink>
-          </li>
-          <li>
+          </Menu.Item>
+          <Menu.Item>
             <Dropdown overlay={sales.menu} placement="bottomCenter">
-              <a href="#" className={this.menuActive(sales.links)}>
-                <Icon type="shopping-cart" /> Vendas
+              <a className={this.menuActive(sales.links)}>
+                <Icon type="shopping-cart" /> Vendas <Icon type="down" />
               </a>
             </Dropdown>
-          </li>
-          <li>
+          </Menu.Item>
+          <Menu.Item>
             <Dropdown overlay={registration.menu} placement="bottomCenter">
-              <a href="#" className={this.menuActive(registration.links)}>
-                <Icon type="form" /> Cadastros
+              <a className={this.menuActive(registration.links)}>
+                <Icon type="form" /> Cadastros <Icon type="down" />
               </a>
             </Dropdown>
-          </li>
-          <li>
+          </Menu.Item>
+          <Menu.Item>
             <Dropdown overlay={marketing.menu} placement="bottomCenter">
-              <a href="#" className={this.menuActive(marketing.links)}>
-                <Icon type="notification" /> Marketing
+              <a className={this.menuActive(marketing.links)}>
+                <Icon type="notification" /> Marketing <Icon type="down" />
               </a>
             </Dropdown>
-          </li>
-        </ul>
+          </Menu.Item>
+        </Menu>
 
         <ul className="app-header-right">
           <li>
@@ -110,14 +111,14 @@ class Header extends React.Component
             </NavLink>
           </li>
           <li>
-            <a href="#">
+            <a>
               <Badge count={5}>
                 <Icon type="bell" />
               </Badge>
             </a>
           </li>
           <li className="app-header-user">
-            <a href="#">
+            <a>
               <Avatar size={24} src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
               <span>
                 Anthony
@@ -126,6 +127,6 @@ class Header extends React.Component
           </li>
         </ul>
       </div>
-    </header>
+    </Layout.Header>
 
 export default Header
