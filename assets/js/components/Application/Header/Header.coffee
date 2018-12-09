@@ -81,21 +81,21 @@ class Header extends React.Component
             </NavLink>
           </li>
           <li>
-            <Dropdown overlay={sales.menu} trigger={['click']} placement="bottomCenter">
+            <Dropdown overlay={sales.menu} placement="bottomCenter">
               <a href="#" className={this.menuActive(sales.links)}>
                 <Icon type="shopping-cart" /> Vendas
               </a>
             </Dropdown>
           </li>
           <li>
-            <Dropdown overlay={registration.menu} trigger={['click']} placement="bottomCenter">
+            <Dropdown overlay={registration.menu} placement="bottomCenter">
               <a href="#" className={this.menuActive(registration.links)}>
                 <Icon type="form" /> Cadastros
               </a>
             </Dropdown>
           </li>
           <li>
-            <Dropdown overlay={marketing.menu} trigger={['click']} placement="bottomCenter">
+            <Dropdown overlay={marketing.menu} placement="bottomCenter">
               <a href="#" className={this.menuActive(marketing.links)}>
                 <Icon type="notification" /> Marketing
               </a>

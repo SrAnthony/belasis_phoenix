@@ -3,6 +3,8 @@ import React from 'react'
 import { Error_403, Error_404, Error_500 } from '../Pages/Error/Error.coffee'
 
 import Customers from '../Pages/Customers/Customers.coffee'
+import Calendar from '../Pages/Calendar/Calendar.coffee'
+import Dashboard from '../Pages/Dashboard/Dashboard.coffee'
 
 # ===
 # Declaração de todas as rotas do sistema
@@ -12,7 +14,12 @@ export default Routes = [
   {
     path: '/',
     exact: true,
-    component: () => <h2>Home</h2>
+    component: () => <Dashboard />
+  },
+  {
+    path: '/calendar',
+    exact: true,
+    component: () => <Calendar />
   },
   {
     path: '/customers',

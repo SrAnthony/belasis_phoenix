@@ -4,9 +4,31 @@
 
 .app-main
   background-color: $background_color
-  min-height: 100vh
-  padding-top: 64px
+  min-height: 101vh
+  padding-top: 84px
 
 .app-wrapper
   max-width: 1200px
   margin: auto
+
+// ===============
+// === Blocks
+// ===============
+.app-block
+  background-color: white
+  box-shadow: 0 0.6rem 1.4rem -0.4rem #D5DAE2
+  border: 1px solid #EEE
+  border-radius: 3px
+  padding: 20px
+  transition: box-shadow .3s ease-in-out
+
+  &:hover
+    box-shadow: 0 1.8rem 1.8rem -0.5rem #CBD1DC
+
+.fade-enter
+  opacity: 0
+  z-index: 1
+
+.fade-enter.fade-enter-active
+  opacity: 1
+  transition: opacity 250ms ease-in
