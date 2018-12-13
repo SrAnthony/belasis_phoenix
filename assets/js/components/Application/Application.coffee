@@ -1,4 +1,5 @@
 import React from 'react'
+import { Scrollbars } from 'react-custom-scrollbars'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { Layout, Menu } from 'antd'
@@ -13,36 +14,41 @@ import 'antd/dist/antd.css'
 class Application extends React.Component
   render: ->
     <Router>
-      <Layout>
+      <Layout style={{ width: '100vw', height: '100vh' }}>
 
         <Header />
 
-        <Layout.Content>
-          <Route render={({ location }) => (
-            <div className="application">
+        <Scrollbars style={{ width: '100%', height: '100%' }} autoHide>
 
-              <main className="app-main">
-                <TransitionGroup exit={false}>
-                  <CSSTransition key={location.key} classNames="fade" timeout={300}>
-                    <Switch>
-                      {Routes.map((route) =>
-                        <Route
-                          key={route.path}
-                          path={route.path}
-                          exact={route.exact}
-                          component={route.component}
-                        />
-                      )}
-                    </Switch>
-                  </CSSTransition>
-                </TransitionGroup>
-              </main>
+          <Layout.Content>
+            <Route render={({ location }) => (
+              <div className="application">
 
-            </div>
-          )} />
-        </Layout.Content>
+                <main className="app-main">
+                  <TransitionGroup exit={false}>
+                    <CSSTransition key={location.key} classNames="fade" timeout={300}>
+                      <Switch>
+                        {Routes.map((route) =>
+                          <Route
+                            key={route.path}
+                            path={route.path}
+                            exact={route.exact}
+                            component={route.component}
+                          />
+                        )}
+                      </Switch>
+                    </CSSTransition>
+                  </TransitionGroup>
+                </main>
 
-        <Footer />
+              </div>
+            )} />
+          </Layout.Content>
+
+          <Footer />
+
+        </Scrollbars>
+
 
       </Layout>
     </Router>
