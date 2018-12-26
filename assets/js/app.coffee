@@ -12,7 +12,7 @@ import { Scrollbars } from 'react-custom-scrollbars'
 
 App =
   <LocaleProvider locale={pt_BR}>
-    <Scrollbars style={{ width: '100vw', height: '100vh' }}>
+    <Scrollbars autoHide style={{ width: '100vw', height: '100vh' }}>
       <Application />
     </Scrollbars>
   </LocaleProvider>

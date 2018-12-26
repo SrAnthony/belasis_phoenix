@@ -21,36 +21,21 @@ class Application extends React.Component
 
         <Header />
 
-        <Scrollbars style={{ width: '100%', height: '100%' }} autoHide>
-
-              <main className="app-main">
-                <TransitionGroup exit={false}>
-                  <CSSTransition key={location.key} classNames="fade" timeout={300}>
-                    <Switch>
-                      {Routes.map (route) =>
-                        <Route key={route.path} {...route} />
-                      }
-                    </Switch>
-                  </CSSTransition>
-                </TransitionGroup>
-              </main>
-
-                <main className="app-main">
-                  <TransitionGroup exit={false}>
-                    <CSSTransition key={location.key} classNames="fade" timeout={300}>
-                      <Switch>
-                        {Routes.map((route) =>
-                          <Route
-                            key={route.path}
-                            path={route.path}
-                            exact={route.exact}
-                            component={route.component}
-                          />
-                        )}
-                      </Switch>
-                    </CSSTransition>
-                  </TransitionGroup>
-                </main>
+        <Layout.Content>
+          <Route render={({ location }) => (
+            <main className="app-main">
+              <TransitionGroup exit={false}>
+                <CSSTransition key={location.key} classNames="fade" timeout={300}>
+                  <Switch>
+                    {Routes.map (route) =>
+                      <Route key={route.path} {...route} />
+                    }
+                  </Switch>
+                </CSSTransition>
+              </TransitionGroup>
+            </main>
+          )} />
+        </Layout.Content>
 
               </div>
             )} />

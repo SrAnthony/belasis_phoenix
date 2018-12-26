@@ -63,7 +63,7 @@ class Header extends React.Component
 
     <Layout.Header className="app-header">
 
-      <div className="app-wrapper app-header-wrapper">
+      <div className="app-header-wrapper">
 
         <div className="app-header-logo">
           <img src={belasis_blue} />

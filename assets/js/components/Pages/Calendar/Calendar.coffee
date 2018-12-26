@@ -46,7 +46,7 @@ class Calendar extends React.Component
     localizer = BigCalendar.momentLocalizer(moment)
     { loading, events, resources, new_event } = this.state
 
-    <section className="app-wrapper app-calendar" style={{paddingBottom: '20px'}}>
+    <section className="app-calendar" style={{paddingBottom: '20px'}}>
       <CalendarDrawer
         onClose={this.onCloseCalendarDrawer}
         visible={this.state.new_calendar_drawer}
