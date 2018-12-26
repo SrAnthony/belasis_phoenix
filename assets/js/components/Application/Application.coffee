@@ -1,5 +1,4 @@
 import React from 'react'
-import { Scrollbars } from 'react-custom-scrollbars'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import { Layout, Menu } from 'antd'
@@ -16,12 +15,14 @@ class Application extends React.Component
     console.log 'Application updated'
 
   render: ->
+    { Content } = Layout
+
     <Router>
-      <Layout style={{ width: '100vw', height: '100vh' }}>
+      <Layout>
 
         <Header />
 
-        <Layout.Content>
+        <Content>
           <Route render={({ location }) => (
             <main className="app-main">
               <TransitionGroup exit={false}>
@@ -35,16 +36,9 @@ class Application extends React.Component
               </TransitionGroup>
             </main>
           )} />
-        </Layout.Content>
+        </Content>
 
-              </div>
-            )} />
-          </Layout.Content>
-
-          <Footer />
-
-        </Scrollbars>
-
+        <Footer />
 
       </Layout>
     </Router>
