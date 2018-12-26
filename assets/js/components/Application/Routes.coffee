@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 
 import { Error_403, Error_404, Error_500 } from '../Pages/Error/Error.coffee'
 
-import Customers from '../Pages/Customers/Customers.coffee'
-import Calendar from '../Pages/Calendar/Calendar.coffee'
-import Dashboard from '../Pages/Dashboard/Dashboard.coffee'
+`const Customers = React.lazy(() => import(/* webpackChunkName: 'Customers' */'../Pages/Customers/Customers.coffee'));`
+`const Calendar = React.lazy(() => import(/* webpackChunkName: 'Calendar' */'../Pages/Calendar/Calendar.coffee'));`
+`const Dashboard = React.lazy(() => import(/* webpackChunkName: 'Dashboard' */'../Pages/Dashboard/Dashboard.coffee'));`
 
 # ===
 # Declaração de todas as rotas do sistema
@@ -14,22 +14,31 @@ export default Routes = [
   {
     path: '/',
     exact: true,
-    component: () => <Dashboard />
+    render: () =>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Dashboard />
+      </Suspense>
   },
   {
     path: '/calendar',
     exact: true,
-    component: () => <Calendar />
+    render: () =>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Calendar />
+      </Suspense>
   },
   {
     path: '/customers',
     exact: true,
-    component: () => <Customers.Index />
+    render: () =>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Customers.Index />
+      </Suspense>
   },
-  {
-    path: '/customers/new',
-    component: () => <Customers.New />
-  },
+  # {
+  #   path: '/customers/new',
+  #   component: () => <Customers.New />
+  # },
   {
     path: '/403',
     component: () => <Error_403 />
